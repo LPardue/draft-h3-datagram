@@ -4,12 +4,12 @@
 
 Network Working Group                                        D. Schinazi
 Internet-Draft                                                Google LLC
-Intended status: Experimental                            12 October 2020
-Expires: 15 April 2021
+Intended status: Standards Track                        13 December 2020
+Expires: 16 June 2021
 
 
                     Using QUIC Datagrams with HTTP/3
-                 draft-schinazi-quic-h3-datagram-latest
+                draft-schinazi-masque-h3-datagram-latest
 
 Abstract
 
@@ -21,9 +21,9 @@ Abstract
    frames when the application protocol running over QUIC is HTTP/3 by
    adding an identifier at the start of the frame payload.
 
-   Discussion of this work is encouraged to happen on the QUIC IETF
-   mailing list (quic@ietf.org (mailto:quic@ietf.org)) or on the GitHub
-   repository which contains the draft:
+   Discussion of this work is encouraged to happen on the MASQUE IETF
+   mailing list (masque@ietf.org (mailto:masque@ietf.org)) or on the
+   GitHub repository which contains the draft:
    https://github.com/DavidSchinazi/draft-h3-datagram.
 
 Status of This Memo
@@ -41,22 +41,12 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 15 April 2021.
+   This Internet-Draft will expire on 16 June 2021.
 
 Copyright Notice
 
    Copyright (c) 2020 IETF Trust and the persons identified as the
    document authors.  All rights reserved.
-
-
-
-
-
-
-Schinazi                  Expires 15 April 2021                 [Page 1]
-
-Internet-Draft              HTTP/3 Datagrams                October 2020
-
 
    This document is subject to BCP 78 and the IETF Trust's Legal
    Provisions Relating to IETF Documents (https://trustee.ietf.org/
@@ -69,17 +59,17 @@ Internet-Draft              HTTP/3 Datagrams                October 2020
 
 Table of Contents
 
-   1.  Introduction  . . . . . . . . . . . . . . . . . . . . . . . .   2
-     1.1.  Conventions and Definitions . . . . . . . . . . . . . . .   3
-   2.  HTTP/3 DATAGRAM Frame Format  . . . . . . . . . . . . . . . .   3
-     2.1.  Flow Identifiers  . . . . . . . . . . . . . . . . . . . .   3
-   3.  Flow Identifier Allocation  . . . . . . . . . . . . . . . . .   4
-   4.  The H3_DATAGRAM HTTP/3 SETTINGS Parameter . . . . . . . . . .   4
-   5.  Security Considerations . . . . . . . . . . . . . . . . . . .   5
-   6.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .   5
-   7.  Normative References  . . . . . . . . . . . . . . . . . . . .   5
-   Acknowledgments . . . . . . . . . . . . . . . . . . . . . . . . .   6
-   Author's Address  . . . . . . . . . . . . . . . . . . . . . . . .   6
+   1.  Introduction
+     1.1.  Conventions and Definitions
+   2.  HTTP/3 DATAGRAM Frame Format
+     2.1.  Flow Identifiers
+   3.  Flow Identifier Allocation
+   4.  The H3_DATAGRAM HTTP/3 SETTINGS Parameter
+   5.  Security Considerations
+   6.  IANA Considerations
+   7.  Normative References
+   Acknowledgments
+   Author's Address
 
 1.  Introduction
 
@@ -95,24 +85,10 @@ Table of Contents
    This design mimics the use of Stream Types in HTTP/3, which provide a
    demultiplexing identifier at the start of each unidirectional stream.
 
-   Discussion of this work is encouraged to happen on the QUIC IETF
-   mailing list (quic@ietf.org (mailto:quic@ietf.org)) or on the GitHub
-   repository which contains the draft:
+   Discussion of this work is encouraged to happen on the MASQUE IETF
+   mailing list (masque@ietf.org (mailto:masque@ietf.org)) or on the
+   GitHub repository which contains the draft:
    https://github.com/DavidSchinazi/draft-h3-datagram.
-
-
-
-
-
-
-
-
-
-
-Schinazi                  Expires 15 April 2021                 [Page 2]
-
-Internet-Draft              HTTP/3 Datagrams                October 2020
-
 
 1.1.  Conventions and Definitions
 
@@ -157,18 +133,6 @@ Internet-Draft              HTTP/3 Datagrams                October 2020
    sender SHOULD group them by flow identifier to promote fate-sharing
    within a specific flow and improve the ability to process batches of
    datagram messages efficiently on the receiver.
-
-
-
-
-
-
-
-
-Schinazi                  Expires 15 April 2021                 [Page 3]
-
-Internet-Draft              HTTP/3 Datagrams                October 2020
-
 
 3.  Flow Identifier Allocation
 
@@ -217,15 +181,6 @@ Internet-Draft              HTTP/3 Datagrams                October 2020
    the stored value; if not, the client MUST terminate the connection
    with error H3_SETTINGS_ERROR.
 
-
-
-
-
-Schinazi                  Expires 15 April 2021                 [Page 4]
-
-Internet-Draft              HTTP/3 Datagrams                October 2020
-
-
 5.  Security Considerations
 
    This document currently does not have additional security
@@ -252,14 +207,14 @@ Internet-Draft              HTTP/3 Datagrams                October 2020
 
    [H3]       Bishop, M., "Hypertext Transfer Protocol Version 3
               (HTTP/3)", Work in Progress, Internet-Draft, draft-ietf-
-              quic-http-31, 24 September 2020, <http://www.ietf.org/
-              internet-drafts/draft-ietf-quic-http-31.txt>.
+              quic-http-32, 20 October 2020, <http://www.ietf.org/
+              internet-drafts/draft-ietf-quic-http-32.txt>.
 
    [QUIC]     Iyengar, J. and M. Thomson, "QUIC: A UDP-Based Multiplexed
               and Secure Transport", Work in Progress, Internet-Draft,
-              draft-ietf-quic-transport-31, 24 September 2020,
+              draft-ietf-quic-transport-32, 20 October 2020,
               <http://www.ietf.org/internet-drafts/draft-ietf-quic-
-              transport-31.txt>.
+              transport-32.txt>.
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
@@ -269,18 +224,6 @@ Internet-Draft              HTTP/3 Datagrams                October 2020
    [RFC8174]  Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC
               2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
               May 2017, <https://www.rfc-editor.org/info/rfc8174>.
-
-
-
-
-
-
-
-
-Schinazi                  Expires 15 April 2021                 [Page 5]
-
-Internet-Draft              HTTP/3 Datagrams                October 2020
-
 
 Acknowledgments
 
@@ -300,37 +243,3 @@ Author's Address
    United States of America
 
    Email: dschinazi.ietf@gmail.com
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Schinazi                  Expires 15 April 2021                 [Page 6]
